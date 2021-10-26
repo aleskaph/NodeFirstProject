@@ -1,0 +1,40 @@
+<html>
+    <head></head>
+    <body>
+        <div id="visor">0</div>
+        <button onclick="visualizar(7)">7</button>
+        <button onclick="visualizar(8)">8</button>
+        <button onclick="visualizar(9)">9</button>
+        <button>*</button> <br>
+        <button onclick="visualizar(4)">4</button>
+        <button onclick="visualizar(5)">5</button>
+        <button onclick="visualizar(6)">6</button>
+        <button>-</button><br>
+        <button onclick="visualizar(1)">1</button>
+        <button onclick="visualizar(2)">2</button>
+        <button onclick="visualizar(3)">3</button>
+        <button onclick="salvaOperacao()">+</button><br>
+        <button onclick="visualizar(0)">0</button>
+        <button>=</button>
+        <button>/</button>
+        <script>
+            function visualizar(num){
+                const visor = document.getElementById("visor");
+                if (visor.innerHTML == 0) {
+                    visor.innerHTML = num;        
+                }
+                else {
+                    visor.innerHTML = visor.innerHTML + num;
+                }
+            }
+
+            function salvaOperacao(){
+                var a = visor.innerHTML;
+            }
+
+        </script>
+
+        
+    </body>
+    
+</html>

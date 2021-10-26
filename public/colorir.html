@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <title>Colorir</title>
+        <style>
+            .fundoverde {
+                background-color: green;
+            }
+
+            .fundoVermelho {
+                background-color: red;
+            }
+
+            .fundoBranco {
+                background-color: white;
+            }
+            .fundoTomate {
+                background-color: tomato;
+            }
+
+            .textoamarelo {
+                color: yellow;
+            }
+
+            .textotomate {
+                color:tomato;
+
+            }
+
+        </style>
+    </head>
+    <body id="corpo">
+        <h1 id="mae">Alessandra</h1>
+        <h1 id="pai">Kadu</h1>
+        <h1 id="filho">Vini</h1>
+        <button onclick="colorred()"> vermelho</button>
+        <button onclick="colorrgreen()"> verde</button>
+        <button onclick="textinhoamarelo()"> amarelo</button>
+        <button onclick="colortomato()"> tomate</button>
+
+        <script>
+        var chamarEscola = 'Vamos para a escola?'  ;
+        function colorred() {
+            document.getElementById("mae").className = "fundoVermelho";
+                        
+            document.getElementById("mae").innerHTML = 'Alessandra disse: "' + chamarEscola + '"';
+        }
+        function colorrgreen() {
+            document.getElementById("pai").className = "fundoverde";
+            document.getElementById("pai").innerHTML = 'Kadu disse: "' + chamarEscola + '"';
+        }
+        function colortomato() {
+            document.getElementById("filho").className = "fundotomate";
+            document.getElementById("filho").innerHTML = 'Vini disse: "' + chamarEscola + '"';
+            
+        }
+        function textinhoamarelo() {
+            document.getElementById("mae").className = document.getElementById("mae").className + " textoamarelo";
+        }
+        function textinhotomate() {
+            document.getElementById("pai").className = document.getElementById("pai").className + "textotomate";
+            
+        }
+        </script>
+    </body>
+</html>
