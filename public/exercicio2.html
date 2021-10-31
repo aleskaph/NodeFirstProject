@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<head>
+    
+    <title>Exercício 2 </title>
+</head>
+<body>
+
+    <input type="number" id="numdigitado">
+    <button onclick="mostranumero()">click</button>
+    <div id="resposta">
+        
+    </div>
+    
+
+    <script>
+        function mostranumero() {
+            //pega o numero digitado e coloca na variavel num
+            var num = document.getElementById("numdigitado").value;
+            //pega um espaco (div) do documento html e digita "o número informado foi" + num
+            var resp = document.getElementById("resposta");
+            resp.innerHTML= "o número informado foi " + num;
+        }
+    </script>
+
+</body>
+
+</html>
+

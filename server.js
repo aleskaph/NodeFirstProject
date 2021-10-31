@@ -21,30 +21,20 @@ app.use(sessions({
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 app.get("/", 
     function (req, res) {
         if (req.session.emailLogado) {
             //entra aqui se já tiver logado na sessão
-            res.sendFile( '/home/alessandra/NodeFirstProject/public/lista.html' );
+            res.sendFile( __dirname + '/public/lista.html' );
             req.session.save();
         } else {
             //aqui se não tiver logado, então mostra a tela de login
-            res.sendFile( '/home/alessandra/NodeFirstProject/public/index.html' );
+            res.sendFile( __dirname + '/public/index.html' );
         }
     }
 );
+
+
 
 app.get("/listaJson", (req, res) => {
     if (req.session.emailLogado) {
@@ -95,7 +85,21 @@ app.get("/colorir", (req, res) => {
 
 
 app.get("/novoItem", (req, res) => {
-    listaJson.itens.push(req.query);
+    var maiorId = 0;
+
+    for (var i = 0; i < listaJson.itens.length; i++) {
+        if (maiorId < listaJson.itens[i].id) {
+            maiorId = listaJson.itens[i].id;
+        }
+    }
+
+    var dado = {
+        id: ++maiorId,
+        descricao: req.query.descricao,
+        quantidade: req.query.quantidade
+    }
+
+    listaJson.itens.push(dado);
     fs.writeFile("./listaCompras.json", JSON.stringify(listaJson), function(err) {
         if (err) {
             console.log(err);
@@ -108,7 +112,7 @@ app.get("/removeItem", (req, res) => {
     var itens = listaJson.itens;
     var novosItens = [];
     for (let index = 0; index < itens.length; index++) {
-        if (itens[index].descricao != req.query.descricao) {
+        if (itens[index].id != req.query.id) {
             novosItens.push(itens[index]);
         }
         
@@ -125,7 +129,7 @@ app.get("/removeItem", (req, res) => {
 app.get("/addQtd", (req, res) => {
     var itens = listaJson.itens;
     for (let index = 0; index < itens.length; index++) {
-        if (itens[index].descricao === req.query.descricao) {
+        if (itens[index].id == req.query.id) {
             itens[index].quantidade++;
         }         
     }
@@ -141,7 +145,7 @@ app.get("/addQtd", (req, res) => {
 app.get("/remQtd", (req, res) => {
     var itens = listaJson.itens;
     for (let index = 0; index < itens.length; index++) {
-        if (itens[index].descricao === req.query.descricao) {
+        if (itens[index].id == req.query.id) {
             itens[index].quantidade--;
         }         
     }
@@ -153,6 +157,76 @@ app.get("/remQtd", (req, res) => {
     }); 
     res.redirect("/"); 
 });
+
+
+
+
+
+
+
+
+
+
+
+app.get("/ex1", (req, res) => {
+    res.sendFile( __dirname + "/public/exercicio1.html")
+});
+
+
+app.get("/ex2", (req, res) => {
+    res.sendFile( __dirname + "/public/exercicio2.html")
+});
+
+
+app.get("/ex3", (req, res) => {
+    res.sendFile( __dirname + "/public/exercicio3.html")
+});
+
+
+
+
+app.get("/ex4", (req, res) => {
+    res.sendFile( __dirname + "/public/exercicio4.html")
+});
+
+
+app.get("/ex5", (req, res) => {
+    res.sendFile( __dirname + "/public/exercicio5.html")
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

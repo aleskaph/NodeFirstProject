@@ -1,0 +1,28 @@
+<html>
+    <head>
+ <title>Exercio 3</title>
+    </head>
+
+    <body>
+        <input type="number1" id="numdigitado1">
+        <input type="number2" id="numdigitado2">
+        <button onclick="mostranumero()">click</button>
+        <div id="resposta"> 
+
+        </div>
+        
+
+
+        <script>
+            function mostranumero() {
+                //pega o numero digitado e coloca na variavel num
+                var num1 = document.getElementById("numdigitado1").value;
+                var num2 = document.getElementById("numdigitado2").value;
+                //pega um espaco (div) do documento html e digita "o número informado foi" + num
+                var resp = document.getElementById("resposta");
+                var soma = parseInt(num1) + parseInt(num2);
+                resp.innerHTML= "A soma dos numeros é " + soma;
+            }
+        </script>
+    </body>
+</html>

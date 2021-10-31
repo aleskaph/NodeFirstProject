@@ -1,0 +1,35 @@
+<html>
+    <head>
+ <title>Exercio 4</title>
+    </head>
+
+    <body>
+        Nota 1:<input type="number1" id="numdigitado1"> <br>
+        Nota 2:<input type="number2" id="numdigitado2"> <br>
+        Nota 3:<input type="number3" id="numdigitado3"> <br>
+        Nota 4:<input type="number4" id="numdigitado4"> <br>
+        
+        <button 
+        onclick="mostranumero()">click</button>
+        <div id="resposta"> 
+
+        </div>
+        
+
+
+        <script>
+            function mostranumero() {
+                //pega o numero digitado e coloca na variavel num
+                var num1 = document.getElementById("numdigitado1").value;
+                var num2 = document.getElementById("numdigitado2").value;
+                var num3 = document.getElementById("numdigitado1").value;
+                var num4 = document.getElementById("numdigitado2").value;
+                //pega um espaco (div) do documento html e digita "o número informado foi" + num
+                var resp = document.getElementById("resposta");
+                var soma = parseInt(num1) + parseInt(num2) + parseInt(num3) + parseInt(num4);
+                var media = soma/4;
+                resp.innerHTML= "A média é " + media;
+            }
+        </script>
+    </body>
+</html>

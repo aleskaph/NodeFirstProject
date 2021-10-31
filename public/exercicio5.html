@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+    
+    <title>Exercício 5 </title>
+</head>
+<body>
+
+   Altura: <input type="number" id="numdigitado"><br>
+    <button onclick="mulher()">mulher</button> <br>
+    <button onclick="homem()">homem</button>
+    <div id="resposta">
+        
+    </div>
+    
+
+    <script>
+
+//5-Tendo como dado de entrada a altura (h) de uma pessoa, construa um algoritmo que calcule seu peso ideal, utilizando as seguintes fórmulas:
+	//a. Para homens: (72.7*h) - 58
+	//b. Para mulheres: (62.1*h) - 44.7
+        function mulher() {
+            //pega o numero digitado e coloca na variavel num
+            var h = document.getElementById("numdigitado").value;
+            //pega um espaco (div) do documento html e digita "o número informado foi" + num
+            var resp = document.getElementById("resposta");
+            var peso = (62.1*h) - 44.7;
+            resp.innerHTML= "O peso ideal da mulher para essa altura é " + peso + "kg";
+        }
+
+        function homem() {
+            //pega o numero digitado e coloca na variavel num
+            var h = document.getElementById("numdigitado").value;
+            //pega um espaco (div) do documento html e digita "o número informado foi" + num
+            var resp = document.getElementById("resposta");
+            var peso = (72.7*h) - 58;
+            resp.innerHTML= "O peso ideal do homem para essa altura é " + peso + "kg";
+        }
+    </script>
+
+</body>
+
+</html>
