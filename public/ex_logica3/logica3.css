@@ -1,0 +1,28 @@
+  td {
+    border: 5px;  
+    border-style: none;
+    color: blue;
+  }
+
+  li {
+    margin-top: 7px;
+    border-bottom: double;
+    border-bottom-color: darkblue;
+  }
+ 
+
+  li > button {
+    border-style: none;
+    color: red;
+    background-color: white;
+  }
+
+  td > button {
+    border-style: none;
+    color: green;
+    background-color: white;
+  }
+
+  button :hover {
+    cursor: pointer;
+  }

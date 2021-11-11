@@ -184,7 +184,6 @@ app.get("/ex3", (req, res) => {
 
 
 
-
 app.get("/ex4", (req, res) => {
     res.sendFile( __dirname + "/public/exercicio4.html")
 });
@@ -195,12 +194,24 @@ app.get("/ex5", (req, res) => {
 });
 
 
+app.get("/game", (req, res) => {
+    res.sendFile( __dirname + "/public/roubamao.html");
+});
 
 
+app.get("/logica", (req, res) => {
+    res.sendFile( __dirname + "/public/ex_logica/logica.html");
+});
 
 
+app.get("/logica2", (req, res) => {
+    res.sendFile( __dirname + "/public/ex_logica2/logica2.html");
+});
 
 
+app.get("/logica3", (req, res) => {
+    res.sendFile( __dirname + "/public/ex_logica3/logica3.html");
+});
 
 
 

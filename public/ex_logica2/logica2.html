@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício de Lógica</title>
+    <link rel="stylesheet" href="/public/ex_logica2/logica2.css">
+</head>
+<body>
+    <table >
+        <thead>
+            <th>
+                Código
+            </th>
+            <th>
+                Item
+            </th>
+            <th>
+                Preço
+            </th>
+        </thead>
+        <tbody id="cardapio">     
+            
+        </tbody>
+    </table>
+    <table >
+        <tbody>
+            <tr>
+                <td style="width: 150px;">
+                    <input type="number" id="numItem">
+                </td>
+                <td style="width: 120px; padding-left: 30px;">
+                    <button onclick="addCod(document.getElementById('numItem').value)">Adiciona Item</button>
+                </td>
+            </tr>
+            
+        </tbody>
+    </table>
+    <br>
+    <br>
+    <h3>Pedido do cliente:</h3>
+    <div id="detalhesPedido"></div>
+    <div id="totalPedido"></div>
+    <script src="/public/ex_logica2/logica2.js"></script>
+</body>
+</html>
