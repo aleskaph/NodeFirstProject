@@ -23,6 +23,7 @@ var idUnico = 0;
 imprimeCardapioCompleto();
 
 
+
 function addPedido(seucod, descItem, valorItem) {
     pedido.push(' <button id="'+idUnico+'" onclick="remove(' + idUnico + ')">-</button>' + "<b> Cód: </b>" + seucod +  " <b> Item: </b> " + descItem + "   " + valorItem.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) + "<br>");
     idUnico = idUnico + 1;

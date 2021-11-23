@@ -214,7 +214,9 @@ app.get("/logica3", (req, res) => {
 });
 
 
-
+app.get("/atendimento", (req, res) => {
+    res.sendFile( __dirname + "/public/atendimento/atendimento.html");
+});
 
 
 
