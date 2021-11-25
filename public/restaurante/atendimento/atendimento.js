@@ -7,7 +7,10 @@ var produto = (cod, desc, val) => {
     }
 }
 var cardapio = [];
-cardapio.push(produto(100, "Refrigerante Coca Cola 355ml", 3.50));
+
+//var fs = require('fs');
+//var arrayPath = './public/restaurante/cardapio/cardapio.json';
+/* cardapio.push(produto(100, "Refrigerante Coca Cola 355ml", 3.5));
 cardapio.push(produto(101, "Refrigerante Fanta 355ml", 2.50));
 cardapio.push(produto(102, "X-Burger", 6.00));
 cardapio.push(produto(103, "X-Egg", 7.50));
@@ -15,7 +18,8 @@ cardapio.push(produto(104, "Cachorro Quente", 4.50));
 cardapio.push(produto(105, "Pudim de Leite", 3.50));
 cardapio.push(produto(106, "Sagu", 2.00));
 cardapio.push(produto(107, "Cachorro Quente Duplo", 6.00));
-cardapio.push(produto(108, "Batatas Fritas", 5.00));
+cardapio.push(produto(108, "Batatas Fritas", 5.00)); */
+cardapio = leArquivo('/public/restaurante/cardapio/cardapio.json');
 
 var mesas = [];
 
@@ -24,6 +28,13 @@ var mesaAtual = 0;
 
 
 imprimeCardapioCompleto();
+
+function leArquivo(arquivo) {
+   var request = new XMLHttpRequest();
+   request.open("GET", arquivo, false);
+   request.send();
+   return JSON.parse(request.responseText);
+}
 
 function selecionaMesa(m) {
     //mesa selecionada é passada pelo parametro

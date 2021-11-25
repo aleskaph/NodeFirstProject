@@ -215,11 +215,60 @@ app.get("/logica3", (req, res) => {
 
 
 app.get("/atendimento", (req, res) => {
-    res.sendFile( __dirname + "/public/atendimento/atendimento.html");
+    res.sendFile( __dirname + "/public/restaurante/atendimento/atendimento.html");
+});
+
+app.get("/restaurante", (req, res) => {
+    res.sendFile( __dirname + "/public/restaurante/index.html");
 });
 
 
+app.get("/cardapio", (req, res) => {
+    res.sendFile( __dirname + "/public/restaurante/cardapio/configurar.html");
+});
 
+app.post("/cardapio", (req, res) => {
+    const listCardapio = require('./public/restaurante/cardapio/cardapio.json');
+
+    var valorDigitado = req.body.valor;
+    valorDigitado = parseFloat(valorDigitado.replace("," , "."));
+    
+    var codigoDigitado = parseInt(req.body.codigo);
+
+    //verifica se o código digitado já existe dentro da lista do cardápio
+    var flagAchou = false;
+
+    if (req.body.descricao === "apagaresseitem") {
+        for (let index = 0; index < listCardapio.length; index++) {
+            //achou o produto com o codigo digitado
+            if (listCardapio[index].codigo === codigoDigitado) {
+                listCardapio.splice(index, 1);
+            }
+        }
+    } else {
+        for (let index = 0; index < listCardapio.length; index++) {
+            if (listCardapio[index].codigo === codigoDigitado) {
+                //achou o produto com o codigo digitado
+                flagAchou = true;
+                //edita os dados
+                listCardapio[index].categoria = req.body.categoria;
+                listCardapio[index].descricao = req.body.descricao;
+                listCardapio[index].valor = valorDigitado;
+            } 
+        }
+
+        if (flagAchou === false) {
+            listCardapio.push({ codigo: codigoDigitado, categoria: req.body.categoria, descricao: req.body.descricao, valor: valorDigitado });
+        }
+    }
+    
+    fs.writeFile("./public/restaurante/cardapio/cardapio.json", JSON.stringify(listCardapio), function(err) {
+        if (err) {
+            console.log(err);
+        }
+    }); 
+    res.sendFile( __dirname + "/public/restaurante/cardapio/configurar.html");
+});
 
 
 
